@@ -1,0 +1,27 @@
+<div class="container p-5">
+  <div class="row justify-content-center">
+      <div class="col-6">
+        <h1>New Game</h1>
+      </div>
+    </div>
+  <div class="row justify-content-center mb-3">
+    <div class="col-6">
+      <ul class="list-group list-group-horizontal">
+        <% @letters.each do |letter| %>
+          <li class="list-group-item"><%= letter.capitalize %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <form action="score" method="POST">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <%= hidden_field_tag :letters, @letters %>
+        <input type="text" name='guess' class='form-control mb-2' placeholder="Your guess">
+        <button type="submit" class='btn btn-primary'>Play</button>
+      </form>
+    </div>
+  </div>
+</div>
+ 
